@@ -135,6 +135,32 @@ for (int i = 0; i < futures.size(); i++) {
 				</section>
 				
 				<section>
+									
+				<section>
+				<h2>Callbacks</h2>
+					<pre>
+					<code>
+    final ListenableFuture&lt;GetResult&gt; fut = getUrl(url);
+
+    Futures.addCallback(fut, new FutureCallback&lt;GetResult&gt;() {
+        @Override
+        public void onSuccess(GetResult result) {
+            System.out.println("Future for " + result.url + " completed.");
+            completed.countDown();
+        }
+
+        @Override
+        public void onFailure(Throwable t) {
+            System.out.println("Exception: " + t.getMessage());
+            completed.countDown();
+        }
+    });
+					</code>
+					</pre>	
+				</section>
+				</section>
+				
+				<section>
 					<blockquote>
 						&ldquo;Programming in a functional style makes the state presented to your code explicit, which makes it much easier to reason about, and, in a completely pure system, makes thread race conditions impossible.&rdquo;
 					</blockquote>
