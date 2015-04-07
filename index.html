@@ -195,6 +195,48 @@ for (int i = 0; i < futures.size(); i++) {
 					</code>
 					</pre>	
 				</section>
+								
+				<section>
+					<h2>Beautiful Scala Futures</h2>
+					<p class="fragment roll-in">functional</p>
+					<p class="fragment roll-in">callbacks</p>
+					<p class="fragment roll-in">composing futures</p>
+				</section>
+				
+				<section>
+				<h2>Scala Futures: parallel map</h2>
+					<pre>
+					<code>
+    val all = Future.traverse(urls) { url =>
+      val fut = getUrl(url)
+
+      fut.onComplete { tryRes =>
+        val res = tryRes.flatten
+
+        res match {
+          case Success(getRes) => info(s"Future for ${getRes.url} created at $start, duration: ${getRes.duration} ms.")
+          case Failure(e) => info(s"Future for $url created at $start failed, exception: ${e.getMessage}")
+        }
+      }
+
+      fut
+    }
+					</code>
+					</pre>	
+				</section>
+				
+				<section>
+				<h2>Future oriented API</h2>
+					<pre>
+					<code>
+	trait LoginService {
+	  def user(name: String): Future[User]
+	  def authenticate(user: User, pwd: String): Future[AuthResult]
+	  def login(name: String, pwd: String): Future[Redirect]
+	}
+					</code>
+					</pre>	
+				</section>
 				
 				<section style="text-align: left;">
 					<h1>THE END</h1>
