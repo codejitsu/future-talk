@@ -180,7 +180,8 @@ for (int i = 0; i < futures.size(); i++) {
 				<h2>Combinators</h2>
 					<pre>
 					<code>
-    final CompletableFuture&lt;Optional&lt;GetResult&gt;&gt; fut = getUrl(url).handle((res, ex) -&gt; {
+    final CompletableFuture&lt;Optional&lt;GetResult&gt;&gt; fut = 
+      getUrl(url).handle((res, ex) -&gt; {
         completed.countDown();
 
         if (res != null) {
