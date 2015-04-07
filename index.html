@@ -110,6 +110,26 @@ return pool.submit(new Callable&lt;GetResult&gt;() {
 				</section>
 				
 				<section>
+				<h2>Busy waiting</h2>
+					<pre>
+					<code>
+    for (int i = 0; i < futures.size(); i++) {
+        if (futures.get(i).isDone()) {
+            try {
+                System.out.println("Future completed, duration: " +
+                        futures.get(i).get().url + " -> " + futures.get(i).get().duration);
+            } catch (ExecutionException ee) {
+                System.err.println("Future failed. Message: " + ee.getMessage());
+            }
+        } else {
+            System.out.println("Future not completed yet.");
+            Thread.sleep(100);
+        }
+    }					</code>
+					</pre>	
+				</section>
+				
+				<section>
 					<blockquote>
 						&ldquo;Programming in a functional style makes the state presented to your code explicit, which makes it much easier to reason about, and, in a completely pure system, makes thread race conditions impossible.&rdquo;
 					</blockquote>
