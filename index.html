@@ -56,6 +56,57 @@
 				</section>
 				
 				<section>
+					<p>Futures are placeholders for (concurrently) computed results.</p>
+				</section>
+
+				<section>
+					<h2>Futures states</h2>
+					<ul>
+						<li>Completed</li>
+						<li>Pending</li>
+						<li>Failure</li>
+					</ul>
+				</section>
+				
+				<section>
+					<h2>TODO Future image</h2>
+				</section>
+				
+				<section>
+					<h2>Futures in Java 7</h2>
+					<p class="fragment roll-in">because we still use it</p>
+				</section>
+				
+				<section>
+					<h2>Operations:</h2>
+					<ol>
+						<li>isDone()</li>
+						<li>get()</li>
+						<li>cancel()</li>
+					</ol>
+				</section>
+				
+				<section>
+					<h2>Example: download URL in Java 7</h2>
+					<pre><code>
+					    public Future<GetResult> getUrl(final String url) throws IOException {
+					        return pool.submit(new Callable<GetResult>() {
+					            @Override
+					            public GetResult call() throws Exception {
+					                final GetMethod get = new GetMethod(url);
+					
+					                final long start = System.currentTimeMillis();
+					
+					                client.executeMethod(get);
+					
+					                return new GetResult(url, System.currentTimeMillis() - start);
+					            }
+					        });
+					    }
+					</code></pre>
+				</section>
+				
+				<section>
 					<blockquote>
 						&ldquo;Programming in a functional style makes the state presented to your code explicit, which makes it much easier to reason about, and, in a completely pure system, makes thread race conditions impossible.&rdquo;
 					</blockquote>
