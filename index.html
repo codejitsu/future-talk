@@ -148,7 +148,7 @@ for (int i = 0; i < futures.size(); i++) {
     Futures.addCallback(fut, new FutureCallback&lt;GetResult&gt;() {
         @Override
         public void onSuccess(GetResult result) {
-            System.out.println("Future for " + result.url + " completed.");
+            System.out.println(result.url);
             completed.countDown();
         }
 
