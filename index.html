@@ -88,22 +88,24 @@
 				
 				<section>
 					<h2>Example: download URL in Java 7</h2>
+					<pre>
 					<code>
-					    public Future<GetResult> getUrl(final String url) throws IOException {
-					        return pool.submit(new Callable<GetResult>() {
-					            @Override
-					            public GetResult call() throws Exception {
-					                final GetMethod get = new GetMethod(url);
-					
-					                final long start = System.currentTimeMillis();
-					
-					                client.executeMethod(get);
-					
-					                return new GetResult(url, System.currentTimeMillis() - start);
-					            }
-					        });
-					    }
+public Future&lt;GetResult&gt; getUrl(final String url) throws IOException {
+return pool.submit(new Callable<GetResult>() {
+    @Override
+    public GetResult call() throws Exception {
+        final GetMethod get = new GetMethod(url);
+
+        final long start = System.currentTimeMillis();
+
+        client.executeMethod(get);
+
+        return new GetResult(url, System.currentTimeMillis() - start);
+    }
+});
+}
 					</code>
+					</pre>
 				</section>
 				
 				<section>
