@@ -91,7 +91,7 @@
 					<pre>
 					<code>
 public Future&lt;GetResult&gt; getUrl(final String url) throws IOException {
-return pool.submit(new Callable<GetResult>() {
+return pool.submit(new Callable&lt;GetResult&gt;() {
     @Override
     public GetResult call() throws Exception {
         final GetMethod get = new GetMethod(url);
