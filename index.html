@@ -79,16 +79,16 @@
 				
 				<section>
 					<h2>Operations:</h2>
-					<ol>
+					<ul>
 						<li>isDone()</li>
 						<li>get()</li>
 						<li>cancel()</li>
-					</ol>
+					</ul>
 				</section>
 				
 				<section>
 					<h2>Example: download URL in Java 7</h2>
-					<pre><code>
+					<code>
 					    public Future<GetResult> getUrl(final String url) throws IOException {
 					        return pool.submit(new Callable<GetResult>() {
 					            @Override
@@ -103,7 +103,7 @@
 					            }
 					        });
 					    }
-					</code></pre>
+					</code>
 				</section>
 				
 				<section>
