@@ -213,11 +213,9 @@ for (int i = 0; i < futures.size(); i++) {
     val all = Future.traverse(urls) { url =>
       val fut = getUrl(url)
 
-      fut.onComplete { tryRes =>
-        tryRes match {
+      fut.onComplete match {
           case Success(getRes) => info(s"Future for ${getRes.url} created at $start, duration: ${getRes.duration} ms.")
           case Failure(e) => info(s"Future for $url created at $start failed, exception: ${e.getMessage}")
-        }
       }
 
       fut
