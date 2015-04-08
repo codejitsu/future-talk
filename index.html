@@ -225,6 +225,19 @@ for (int i = 0; i < futures.size(); i++) {
 				</section>
 				
 				<section>
+				<h2>Scala Futures: chaining</h2>
+					<pre>
+					<code>				
+  downloadPage(new URL("http://www.example.com")).
+    map(parse).
+    flatMap(calculateRelevance).
+    filter(_ > 0.5).
+    foreach(println)
+					</code>
+					</pre>    
+				</section>
+				
+				<section>
 				<h2>Future oriented API</h2>
 					<pre>
 					<code>
