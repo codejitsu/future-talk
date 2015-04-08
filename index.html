@@ -9,8 +9,7 @@
 		<meta name="description" content="An introduction to concurrent programming with Futures in Java/Scala">
 		<meta name="author" content="Alex">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="apple-mobile-web-app-capable" content="yes" /><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
@@ -233,6 +232,21 @@ for (int i = 0; i < futures.size(); i++) {
     flatMap(calculateRelevance).
     filter(_ > 0.5).
     foreach(println)
+					</code>
+					</pre>    
+				</section>
+
+				<section>
+				<h2>Scala Futures: chaining 2</h2>
+					<pre>
+					<code>								
+for {
+    html <- downloadPage(new URL("http://www.example.com"))
+    relevance <- calculateRelevance(parse(html))
+    if(relevance > 0.5)
+} println(relevance)
+
+println("Done")
 					</code>
 					</pre>    
 				</section>
